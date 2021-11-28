@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-grid>
+  <ion-row>
+    <ion-col><button (click)="operation(1)">+</button></ion-col>
+    <ion-col><button (click)="operation(2)">-</button></ion-col>
+    <ion-col><button (click)="operation(3)">*</button></ion-col>
+    <ion-col><button (click)="operation(4)">/</button></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><button (click)="constructNumber(7)">7</button></ion-col>
+    <ion-col><button (click)="constructNumber(8)">8</button></ion-col>
+    <ion-col><button (click)="constructNumber(9)">9</button></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><button (click)="constructNumber(4)">4</button></ion-col>
+    <ion-col><button (click)="constructNumber(5)">5</button></ion-col>
+    <ion-col><button (click)="constructNumber(6)">6</button></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><button (click)="constructNumber(1)">1</button></ion-col>
+    <ion-col><button (click)="constructNumber(2)">2</button></ion-col>
+    <ion-col><button (click)="constructNumber(3)">3</button></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><button (click)="constructNumber(10)">.</button></ion-col>
+    <ion-col><button (click)="constructNumber(0)">0</button></ion-col>
+    <ion-col><button (click)="finish()">=</button></ion-col>
+  </ion-row>
+</ion-grid>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <p id="output"></p>
 </ion-content>
