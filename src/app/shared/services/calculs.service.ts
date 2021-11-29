@@ -32,6 +32,7 @@ export class CalculsService {
 
   build=(num1, num2, op)=>{
     let res;
+    if(!num2){return num1;}
     switch(op){
       case 1:
         res=this.add(num1, num2);
