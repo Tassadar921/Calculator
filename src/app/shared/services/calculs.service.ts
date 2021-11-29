@@ -8,7 +8,8 @@ export class CalculsService {
   constructor() { }
 
   add=(num1, num2)=>{
-    return num1+num2;
+    let tmp = num1.value + '+' + num2.value;
+    return eval(tmp);
   };
 
   substract=(num1, num2)=>{

@@ -17,7 +17,6 @@ export class HomePage {
   public partDec=0;
   public count=0;
   public output;
-  public signe;
 
   constructor(
     private calculs: CalculsService,
@@ -53,8 +52,7 @@ export class HomePage {
   operation =(val)=>{
     switch(val) {
       case 1:
-        this.signe='+';
-        this.output = this.output.toString()+this.signe.toString();
+        this.output += '+';
         console.log('+');
         break;
       case 2:
@@ -71,7 +69,7 @@ export class HomePage {
         break;
     }
     this.op=val;
-    this.finish();
+    //this.finish();
   };
 
   constructParts =(num)=>{
@@ -97,23 +95,20 @@ export class HomePage {
   };
 
   equal=()=>{
-    // document.getElementById('output').innerHTML='';
+    this.output='';
     this.finish();
   };
 
   finish=()=>{
     this.numberBuild();
-    console.log('fnum1 : ', this.num1);
-    console.log('fnum2 : ', this.num2);
-    console.log('op : ', this.op);
 
-    this.rep=this.calculs.build(this.num1, this.num2, this.op);
+    if(this.op==1){this.output=eval(this.output);}
+    else{this.rep=this.calculs.build(this.num1, this.num2, this.op);}
 
     console.log('rep : ', this.rep);
     this.num1=this.rep;
     delete this.num2;
     this.reinit();
-    this.output='';
     this.output+=this.num1;
   };
 }
