@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {CalculsService} from '../shared/services/calculs.service';
 
 @Component({
@@ -16,10 +16,14 @@ export class HomePage {
   public dec=0;
   public partDec=0;
   public count=0;
+  public output;
+  public signe;
 
   constructor(
     private calculs: CalculsService,
-  ) {}
+  ) {
+    this.output='';
+  }
 
   numberBuild=()=>{
     if(this.num1 && !this.num2){
@@ -49,19 +53,20 @@ export class HomePage {
   operation =(val)=>{
     switch(val) {
       case 1:
-        document.getElementById('output').innerHTML += '+';
+        this.signe='+';
+        this.output = this.output.toString()+this.signe.toString();
         console.log('+');
         break;
       case 2:
-        document.getElementById('output').innerHTML += '-';
+        this.output+='-';
         console.log('-');
         break;
       case 3:
-        document.getElementById('output').innerHTML += 'x';
+        this.output+='x';
         console.log('x');
         break;
       case 4:
-        document.getElementById('output').innerHTML += '/';
+        this.output+='/';
         console.log('/');
         break;
     }
@@ -70,8 +75,8 @@ export class HomePage {
   };
 
   constructParts =(num)=>{
-    if(num!=10){document.getElementById('output').innerHTML+=num;}
-    else{document.getElementById('output').innerHTML+='.';}
+    if(num!=10){this.output+=num;}
+    else{this.output+='.';}
     switch(num){
       case 10:
         this.dec=1;
@@ -108,7 +113,7 @@ export class HomePage {
     this.num1=this.rep;
     delete this.num2;
     this.reinit();
-    document.getElementById('output').innerHTML='';
-    document.getElementById('output').innerHTML+=this.num1;
+    this.output='';
+    this.output+=this.num1;
   };
 }
