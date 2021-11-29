@@ -111,4 +111,16 @@ export class HomePage {
     this.reinit();
     this.output+=this.num1;
   };
+
+  reset=()=>{
+    this.reinit();
+
+    this.op=1;
+    this.rep=0;
+    delete this.num1;
+    delete this.num2;
+    delete this.output;
+
+    console.clear();
+  };
 }
