@@ -8,7 +8,7 @@ import {CalculsService} from '../shared/services/calculs.service';
 })
 export class HomePage {
 
-  public op=1;
+  public op;
   public num1;
   public num2;
   public tmp=0;
@@ -26,18 +26,14 @@ export class HomePage {
 
   numberBuild=()=>{
     if(this.num1 && !this.num2){
-      console.log('bouh');
       this.num2=0.0;
       this.num2=this.tmp+this.partDec/(10**this.count);
-      console.log('num2 : ', this.num2);
     }
     else{
       if(!this.num1 && !this.num2)
       {
-        console.log('coucou');
         this.num1=0.0;
         this.num1=this.tmp+this.partDec/(10**this.count);
-        console.log('num1 : ', this.num1);
       }
     }
   };
@@ -50,6 +46,8 @@ export class HomePage {
   };
 
   operation =(val)=>{
+    if(this.op){this.finish(); this.op=val;}
+    else{this.op=val; this.finish();}
     switch(val) {
       case 1:
         this.output += '+';
@@ -64,8 +62,6 @@ export class HomePage {
         this.output+='/';
         break;
     }
-    this.op=val;
-    this.finish();
   };
 
   constructParts =(num)=>{
@@ -96,16 +92,19 @@ export class HomePage {
   finish=()=>{
     this.numberBuild();
 
-    this.rep=this.calculs.build(this.num1, this.num2, this.op);
+    if(this.num2==0 && this.op==4){this.output='MANGE TES MORTS';}
+    else {
+      this.rep = this.calculs.build(this.num1, this.num2, this.op);
+      this.rep = Math.round(this.rep * 100) / 100;
 
-    console.log('num1 : ', this.num1, 'num2 : ', this.num2, 'op : ', this.op);
-    console.log('rep : ', this.rep);
-    console.log(this.num2);
-    if(this.num2)
-    {
-      this.output+=this.rep;
+      if (this.num1 && this.num2) {
+        this.output = '';
+      }
+      if (this.num2) {
+        this.output += this.rep;
+      }
+      this.num1 = this.rep;
     }
-    this.num1=this.rep;
     delete this.num2;
     this.reinit();
   };
@@ -113,8 +112,8 @@ export class HomePage {
   reset=()=>{
     this.reinit();
 
-    this.op=1;
     this.rep=0;
+    delete this.op;;
     delete this.num1;
     delete this.num2;
     delete this.output;
