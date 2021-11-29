@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import {CalculsService} from '../shared/services/calculs.service';
 
 @Component({
@@ -53,23 +53,19 @@ export class HomePage {
     switch(val) {
       case 1:
         this.output += '+';
-        console.log('+');
         break;
       case 2:
         this.output+='-';
-        console.log('-');
         break;
       case 3:
         this.output+='x';
-        console.log('x');
         break;
       case 4:
         this.output+='/';
-        console.log('/');
         break;
     }
     this.op=val;
-    //this.finish();
+    this.finish();
   };
 
   constructParts =(num)=>{
@@ -83,11 +79,9 @@ export class HomePage {
       default:
         if(this.dec==0) {
           this.tmp = this.tmp * 10 + num;
-          console.log('tmp : ', this.tmp);
         }
         else{
           this.partDec = this.partDec * 10 + num;
-          console.log('partDec : ', this.partDec);
           this.count++;
         }
         break;
@@ -102,14 +96,18 @@ export class HomePage {
   finish=()=>{
     this.numberBuild();
 
-    if(this.op==1){this.output=eval(this.output);}
-    else{this.rep=this.calculs.build(this.num1, this.num2, this.op);}
+    this.rep=this.calculs.build(this.num1, this.num2, this.op);
 
+    console.log('num1 : ', this.num1, 'num2 : ', this.num2, 'op : ', this.op);
     console.log('rep : ', this.rep);
+    console.log(this.num2);
+    if(this.num2)
+    {
+      this.output+=this.rep;
+    }
     this.num1=this.rep;
     delete this.num2;
     this.reinit();
-    this.output+=this.num1;
   };
 
   reset=()=>{
