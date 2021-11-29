@@ -116,7 +116,7 @@ export class HomePage {
     delete this.op;;
     delete this.num1;
     delete this.num2;
-    delete this.output;
+    this.output='';
 
     console.clear();
   };
