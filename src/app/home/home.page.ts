@@ -102,7 +102,6 @@ export class HomePage {
 
         this.histo.unshift(this.num1);
         this.histo[0]+=this.signe+this.num2+' = '+this.rep;
-        console.log(this.histo);
 
         this.output = '';
       }
@@ -136,21 +135,26 @@ export class HomePage {
   };
 
   hist=()=>{
-    if(document.getElementById('displayHisto').style.display=='none'){
+    if(document.getElementById('displayHisto').style.display=='none')
+    {
       document.getElementById('displayHisto').style.display='block';
       document.getElementById('main').style.marginLeft='20%';
+      document.getElementById('bouton').style.marginLeft='20%';
     }
-    else{
+    else
+    {
       document.getElementById('displayHisto').style.display='none';
       document.getElementById('main').style.marginLeft='0';
+      document.getElementById('bouton').style.marginLeft='0';
     }
   };
 
   copyRes=(line)=>{
     for(let i=0;i<line.length;i++){
       if(line[i]=='='){
-        console.log(line.substr(i+1));
+        this.reset();
         this.output+=line.substr(i+1);
+        this.num1=line.substr(i+1);
       }
     }
   };
