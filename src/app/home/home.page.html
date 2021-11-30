@@ -1,10 +1,10 @@
-<ion-button id="bouton" (click)="hist()">Historique</ion-button>
+<ion-button id="bouton" (click)="sound.play(); hist()">Historique</ion-button>
 
 <ion-content id="displayHisto">
   <ion-grid>
     <ion-title style="text-decoration:underline;">Historique :</ion-title>
     <ion-row *ngFor="let line of histo">
-      <ion-col><button (click)="copyRes(line)">{{line}}</button></ion-col>
+      <ion-col><button (click)="sound.play(); copyRes(line)">{{line}}</button></ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
@@ -12,33 +12,33 @@
 <div id="main">
   <ion-grid id="calc">
     <ion-row>
-      <ion-col><button (click)="reset()">RESET</button></ion-col>
+      <ion-col><button (click)="sound.play(); reset()">RESET</button></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button (click)="operation(1)">+</button></ion-col>
-      <ion-col><button (click)="operation(2)">-</button></ion-col>
-      <ion-col><button (click)="operation(3)">*</button></ion-col>
-      <ion-col><button (click)="operation(4)">/</button></ion-col>
+      <ion-col><button (click)="sound.play(); operation(1)">+</button></ion-col>
+      <ion-col><button (click)="sound.play(); operation(2)">-</button></ion-col>
+      <ion-col><button (click)="sound.play(); operation(3)">*</button></ion-col>
+      <ion-col><button (click)="sound.play(); operation(4)">/</button></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button (click)="constructParts(7)">7</button></ion-col>
-      <ion-col><button (click)="constructParts(8)">8</button></ion-col>
-      <ion-col><button (click)="constructParts(9)">9</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(7)">7</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(8)">8</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(9)">9</button></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button (click)="constructParts(4)">4</button></ion-col>
-      <ion-col><button (click)="constructParts(5)">5</button></ion-col>
-      <ion-col><button (click)="constructParts(6)">6</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(4)">4</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(5)">5</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(6)">6</button></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button (click)="constructParts(1)">1</button></ion-col>
-      <ion-col><button (click)="constructParts(2)">2</button></ion-col>
-      <ion-col><button (click)="constructParts(3)">3</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(1)">1</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(2)">2</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(3)">3</button></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button (click)="constructParts(10)">.</button></ion-col>
-      <ion-col><button (click)="constructParts(0)">0</button></ion-col>
-      <ion-col><button (click)="equal()">=</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(10)">.</button></ion-col>
+      <ion-col><button (click)="sound.play(); constructParts(0)">0</button></ion-col>
+      <ion-col><button (click)="sound.play(); equal()">=</button></ion-col>
     </ion-row>
   </ion-grid>
 

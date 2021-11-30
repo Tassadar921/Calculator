@@ -19,6 +19,7 @@ export class HomePage {
   public output; //affichage
   public histo=[]; //historique des calculs
   public signe;
+  public sound=new Audio('../../assets/sounds/touche.wav');
 
   constructor(
     private calculs: CalculsService,
