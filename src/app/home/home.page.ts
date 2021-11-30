@@ -134,7 +134,7 @@ export class HomePage {
     console.clear();
   };
 
-  hist=()=>{
+  hist=()=>{ //affichage ou non via clickEvent, et si affichage de l'historique alors on décale la page sur la droite
     if(document.getElementById('displayHisto').style.display=='none')
     {
       document.getElementById('displayHisto').style.display='block';
@@ -149,7 +149,7 @@ export class HomePage {
     }
   };
 
-  copyRes=(line)=>{
+  copyRes=(line)=>{ //l'input prend la valeur de l'output de la ligne cliquée dans l'historique, clear des variables
     for(let i=0;i<line.length;i++){
       if(line[i]=='='){
         this.reset();
