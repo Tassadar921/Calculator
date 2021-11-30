@@ -2,7 +2,7 @@ ion-grid{
   width:70%;
 }
 
-ion-col{
+#calc ion-col{
   border: solid 1px white;
   text-align:center;
 }
@@ -28,13 +28,24 @@ ion-col:hover{
 }
 
 img{
-  width:40%;
-  margin-left:30%;
-  height:45%;
+  width:30%;
+  margin-left:35%;
+  height:35%;
 }
 
 #easter{
   font-size:1em;
   width:40%;
   margin-left:30%;
+}
+
+#displayHisto{
+  text-align:center;
+  margin-left:0;
+  width:20%;
+  position:absolute;
+}
+
+#displayHisto button{
+  font-size:1em;
 }

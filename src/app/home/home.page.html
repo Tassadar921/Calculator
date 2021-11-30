@@ -1,45 +1,56 @@
-<ion-grid>
-  <ion-row>
-    <ion-col><button (click)="reset()">RESET</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><button (click)="operation(1)">+</button></ion-col>
-    <ion-col><button (click)="operation(2)">-</button></ion-col>
-    <ion-col><button (click)="operation(3)">*</button></ion-col>
-    <ion-col><button (click)="operation(4)">/</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><button (click)="constructParts(7)">7</button></ion-col>
-    <ion-col><button (click)="constructParts(8)">8</button></ion-col>
-    <ion-col><button (click)="constructParts(9)">9</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><button (click)="constructParts(4)">4</button></ion-col>
-    <ion-col><button (click)="constructParts(5)">5</button></ion-col>
-    <ion-col><button (click)="constructParts(6)">6</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><button (click)="constructParts(1)">1</button></ion-col>
-    <ion-col><button (click)="constructParts(2)">2</button></ion-col>
-    <ion-col><button (click)="constructParts(3)">3</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><button (click)="constructParts(10)">.</button></ion-col>
-    <ion-col><button (click)="constructParts(0)">0</button></ion-col>
-    <ion-col><button (click)="equal()">=</button></ion-col>
-  </ion-row>
-</ion-grid>
+<ion-button (click)="hist()">Historique</ion-button>
 
-<ion-content>
-  <p>{{output}}</p>
+<ion-content id="displayHisto">
+  <ion-grid>
+    <ion-title style="text-decoration:underline;">Historique :</ion-title>
+    <ion-row *ngFor="let line of histo">
+      <ion-col><button (click)="copyRes(line)">{{line}}</button></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
-<img src="../../assets/gifs/34.gif" *ngIf="output==34">
-<img src="../../assets/gifs/42.gif" *ngIf="output==42">
-<img src="../../assets/gifs/69.gif" *ngIf="output==69">
-<img src="../../assets/gifs/-273.15.gif" *ngIf="output==-273.15">
-<img src="../../assets/gifs/666.gif" *ngIf="output==666">
-<img src="../../assets/gifs/1337.gif" *ngIf="output==1337">
+<div id="main">
+  <ion-grid id="calc">
+    <ion-row>
+      <ion-col><button (click)="reset()">RESET</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><button (click)="operation(1)">+</button></ion-col>
+      <ion-col><button (click)="operation(2)">-</button></ion-col>
+      <ion-col><button (click)="operation(3)">*</button></ion-col>
+      <ion-col><button (click)="operation(4)">/</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><button (click)="constructParts(7)">7</button></ion-col>
+      <ion-col><button (click)="constructParts(8)">8</button></ion-col>
+      <ion-col><button (click)="constructParts(9)">9</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><button (click)="constructParts(4)">4</button></ion-col>
+      <ion-col><button (click)="constructParts(5)">5</button></ion-col>
+      <ion-col><button (click)="constructParts(6)">6</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><button (click)="constructParts(1)">1</button></ion-col>
+      <ion-col><button (click)="constructParts(2)">2</button></ion-col>
+      <ion-col><button (click)="constructParts(3)">3</button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><button (click)="constructParts(10)">.</button></ion-col>
+      <ion-col><button (click)="constructParts(0)">0</button></ion-col>
+      <ion-col><button (click)="equal()">=</button></ion-col>
+    </ion-row>
+  </ion-grid>
+
+    <p>{{output}}</p>
+
+    <img src="../../assets/gifs/34.gif" *ngIf="output==34">
+    <img src="../../assets/gifs/42.gif" *ngIf="output==42">
+    <img src="../../assets/gifs/69.gif" *ngIf="output==69">
+    <img src="../../assets/gifs/-273.15.gif" *ngIf="output==-273.15">
+    <img src="../../assets/gifs/666.gif" *ngIf="output==666">
+    <img src="../../assets/gifs/1337.gif" *ngIf="output==1337">
+
+</div>
 
 <p id="easter">Des easter eggs sont présents sur le site lorsque l'input ou l'ouput vaut 34, 42, 69, -273.15, 666, 1337</p>
-
